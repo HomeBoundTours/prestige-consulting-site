@@ -25,13 +25,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'          # ← Changed from 18
-          cache: 'npm'
-
-      - name: Clear npm cache        # ← Add this step
-        run: npm cache clean --force
-
+          
       - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit  # ← Updated flags
+        run: npm install --prefer-offline --no-audit  # ← Updated flags
 
       - name: Build
         run: npm run build
